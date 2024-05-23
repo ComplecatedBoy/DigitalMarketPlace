@@ -55,8 +55,6 @@ exports.authRouter = (0, trpc_1.router)({
                     return [4 /*yield*/, (0, get_payload_1.getPayloadClient)()];
                 case 1:
                     payload = _c.sent();
-                    console.log("in the createPayloadUser");
-                    console.log(email, password);
                     return [4 /*yield*/, payload.find({
                             collection: "users",
                             where: {

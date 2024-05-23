@@ -117,7 +117,6 @@ var getPayloadClient = function () {
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _d.sent();
-                    console.log(error_1);
                     cached.promise = null;
                     throw 0;
                 case 4: return [2 /*return*/, cached.client];

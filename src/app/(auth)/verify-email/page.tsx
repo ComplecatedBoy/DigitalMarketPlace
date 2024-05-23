@@ -9,7 +9,6 @@ interface searchParamsProp {
 
 const VerifyEmailPage = ({ searchParams }: searchParamsProp) => {
   const token = searchParams.token;
-  console.log(typeof token);
   const toEmail = searchParams.to;
   return (
     <div className="container relative flex flex-col items-center justify-center pt-20 lg:px-0 ">

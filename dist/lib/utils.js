@@ -14,7 +14,6 @@ exports.cn = cn;
 function formatPrice(price, options) {
     if (options === void 0) { options = {}; }
     var _a = options.currency, currency = _a === void 0 ? "INR" : _a, _b = options.notation, notation = _b === void 0 ? "standard" : _b;
-    console.log(currency, notation);
     var currencyPrice = typeof price === "string" ? parseFloat(price) : price;
     return new Intl.NumberFormat("us-en", {
         style: "currency",

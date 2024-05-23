@@ -24,7 +24,6 @@ const Page = () => {
     });
 
   const productIds = items.map(({ product }) => product.id);
-  console.log(productIds);
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
 

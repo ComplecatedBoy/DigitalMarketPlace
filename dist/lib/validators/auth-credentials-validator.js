@@ -11,7 +11,6 @@ exports.AuthCredentialsValidator = zod_1.z
 })
     .superRefine(function (_a, checkPassComplexity) {
     var password = _a.password;
-    console.log("yaha tak");
     var containsUppercase = function (ch) { return /[A-Z]/.test(ch); };
     var containsLowercase = function (ch) { return /[a-z]/.test(ch); };
     var containsSpecialChar = function (ch) {

@@ -13,7 +13,6 @@ const Providers = ({ children }: PropsWithChildren) => {
         httpBatchLink({
           url: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/trpc`,
           fetch(url, options) {
-            console.log(url, options);
             return fetch(url, {
               ...options,
               credentials: "include",

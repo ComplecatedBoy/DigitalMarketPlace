@@ -11,9 +11,6 @@ export const authRouter = router({
       const { email, password } = input;
       const payload = await getPayloadClient();
 
-      console.log("in the createPayloadUser");
-      console.log(email, password);
-
       const { docs: users } = await payload.find({
         collection: "users",
         where: {

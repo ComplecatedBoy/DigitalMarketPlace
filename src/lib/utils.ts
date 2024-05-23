@@ -13,7 +13,6 @@ export function formatPrice(
   } = {}
 ) {
   const { currency = "INR", notation = "standard" } = options;
-  console.log(currency, notation);
 
   const currencyPrice = typeof price === "string" ? parseFloat(price) : price;
 

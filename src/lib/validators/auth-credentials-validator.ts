@@ -8,7 +8,6 @@ export const AuthCredentialsValidator = z
     }),
   })
   .superRefine(({ password }, checkPassComplexity) => {
-    console.log("yaha tak");
     const containsUppercase = (ch: string) => /[A-Z]/.test(ch);
     const containsLowercase = (ch: string) => /[a-z]/.test(ch);
     const containsSpecialChar = (ch: string) =>
