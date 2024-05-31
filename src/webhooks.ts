@@ -1,7 +1,7 @@
 import express from "express";
 import { WebhookRequest } from "./server";
 import { stripe } from "./lib/stripe";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 import { getPayloadClient } from "./get.payload";
 import { Resend } from "resend";
 import { Product } from "./payload-types";
@@ -13,7 +13,6 @@ export const stripeWebhookHandler = async (
   req: express.Request,
   res: express.Response
 ) => {
-  console.log(req, res);
   const webhookRequest = req as any as WebhookRequest;
   const body = webhookRequest.rawBody;
   const signature = req.headers["stripe-signature"] || "";
@@ -67,7 +66,7 @@ export const stripeWebhookHandler = async (
 
     const [order] = orders;
 
-    if (!user) return res.status(404).json({ error: "No such order exists." });
+    if (!order) return res.status(404).json({ error: "No such order exists." });
 
     await payload.update({
       collection: "orders",
@@ -84,7 +83,7 @@ export const stripeWebhookHandler = async (
     // send receipt
     try {
       const data = await resend.emails.send({
-        from: "DigitalHippo <onboarding@resend.dev>",
+        from: "DigitalHippo < onboarding@resend.dev >",
         to: [user.email],
         subject: "Thanks for your order! This is your receipt.",
         html: RecieptEmailHtml({

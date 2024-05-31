@@ -2,7 +2,6 @@ import { buildConfig } from "payload/config";
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { webpackBundler } from "@payloadcms/bundler-webpack";
-import { viteBundler } from "@payloadcms/bundler-vite";
 import path from "path";
 import { Users } from "./collections/Users";
 import dotenv from "dotenv";

@@ -92,7 +92,7 @@ var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0
             case 3:
                 orders = (_c.sent()).docs;
                 order = orders[0];
-                if (!user)
+                if (!order)
                     return [2 /*return*/, res.status(404).json({ error: "No such order exists." })];
                 return [4 /*yield*/, payload.update({
                         collection: "orders",
@@ -111,7 +111,7 @@ var stripeWebhookHandler = function (req, res) { return __awaiter(void 0, void 0
             case 5:
                 _c.trys.push([5, 7, , 8]);
                 return [4 /*yield*/, resend.emails.send({
-                        from: "DigitalHippo <onboarding@resend.dev>",
+                        from: "DigitalHippo < onboarding@resend.dev >",
                         to: [user.email],
                         subject: "Thanks for your order! This is your receipt.",
                         html: (0, RecieptEmail_1.RecieptEmailHtml)({
