@@ -32,7 +32,7 @@ const Cart = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  const fee = 3;
+  let fee = process.env.TRANSANCTION_FEE || "100";
 
   return (
     <Sheet>
@@ -66,11 +66,11 @@ const Cart = () => {
               </div>
               <div className="flex">
                 <span className="flex-1">Transaction Fee</span>
-                <span>{formatPrice(fee)}</span>
+                <span>{formatPrice(Number(fee))}</span>
               </div>
               <div className="flex">
                 <span className="flex-1">Total</span>
-                <span>{formatPrice(cartTotal + fee)}</span>
+                <span>{formatPrice(cartTotal + Number(fee))}</span>
               </div>
               <SheetFooter>
                 <SheetTrigger asChild>

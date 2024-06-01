@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 const Page = () => {
   const router = useRouter();
   const { items, removeItem, clearCart } = useCart();
-  const fee = 3;
+  let fee = process.env.TRANSANCTION_FEE || "100";
 
   const { mutate: createCheckOutSession, isLoading } =
     trpc.payment.createSession.useMutation({
@@ -167,7 +167,7 @@ const Page = () => {
                 </div>
                 <div className=" text-sm font-medium text-gray-900">
                   {isMounted ? (
-                    formatPrice(fee)
+                    formatPrice(Number(fee))
                   ) : (
                     <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                   )}
@@ -179,7 +179,7 @@ const Page = () => {
                 </div>
                 <div className=" text-base font-medium text-gray-900">
                   {isMounted ? (
-                    formatPrice(fee + cartTotal)
+                    formatPrice(Number(fee) + cartTotal)
                   ) : (
                     <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
                   )}
